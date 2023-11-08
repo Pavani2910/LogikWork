@@ -1,0 +1,49 @@
+Question:
+Unique characters
+Given two strings $1 and $2 Modify string 51 such that all the common characters of $1 and 52 is to be removed and the uncommon characters of $1 and $2 is to be concatenated. Otherwise print '-1'.
+Constraints:no
+Input format:
+2 Strings
+Output format String:
+
+Example:
+Sample Input 1:
+acdb
+gafd
+Sample Output1:
+cbgf
+Sample Output 2:
+1
+Explanation:
+In first test case 2 strings were given and all the comman elemenets from the two strings were eliminated and only unique characters are given as output
+In second testcase only 1 string was given so 1 is the output
+Sample Input 2:
+abc
+
+Code:
+
+def modify_strings(s1, s2):
+    set1 = set(s1)
+    set2 = set(s2)
+    common_chars = set1.intersection(set2)
+    # Remove common characters from both strings
+    unique_s1 = ''.join(c for c in s1 if c not in common_chars)
+    unique_s2 = ''.join(c for c in s2 if c not in common_chars)
+    
+    # If both resulting strings are empty, it means there are no unique characters
+    if unique_s1 == '' and unique_s2 == '':
+        return -1
+    
+    # Concatenate the unique characters from both strings
+    result = unique_s1 + unique_s2    
+    return result
+# Input strings
+s1 = input("Enter the first string: ")
+s2 = input("Enter the second string: ")
+# Call the function to modify the strings
+result = modify_strings(s1, s2)
+# Check if the result is -1 and print accordingly
+if result == -1:
+    print(-1)
+else:
+    print(result)
