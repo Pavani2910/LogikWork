@@ -1,0 +1,39 @@
+Question:
+For given array find out the second smallest element.
+Constraints:no
+Input format:
+Line 1: Integer (Size of array)
+Line 2 Elements
+Output format:
+Integer
+Example:
+Sample Input:1
+5
+21435
+Sample Output:2
+2
+Code:
+
+# Input the size of the array
+n = int(input())
+
+# Input the elements of the array
+arr = list(map(int, input().split()))
+
+# Initialize variables to store the smallest and second smallest elements
+smallest = float('inf')  # Set to positive infinity initially
+second_smallest = float('inf')  # Set to positive infinity initially
+
+# Iterate through the array to find the smallest and second smallest elements
+for num in arr:
+    if num < smallest:
+        second_smallest = smallest
+        smallest = num
+    elif num < second_smallest and num != smallest:
+        second_smallest = num
+
+# Check if a second smallest element was found
+if second_smallest == float('inf'):
+    print("There is no second smallest element in the array.")
+else:
+    print(second_smallest)
